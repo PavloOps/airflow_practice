@@ -6,7 +6,8 @@ Adminer для доступа к базе и Airflow Code Editor для реда
 Главное production-like требование: metadata DB хранится в физической папке проекта
 `./data/postgres`, а не в SQLite и не только во внутреннем Docker volume.
 
-Для эксплуатации на рабочем сервере используйте [RUNBOOK.md](RUNBOOK.md).
+Для эксплуатации на рабочем сервере можно вести отдельный приватный runbook с
+опасными командами, порядком бэкапа и восстановления.
 
 Для запуска внешних ETL-джоб других проектов рекомендуется использовать
 `SSHOperator` и отдельного пользователя на сервере. Конкретный DAG для Streamlit
@@ -77,6 +78,10 @@ AIRFLOW_PROJECT_DIR=/opt/analytics-airflow
 ```env
 AIRFLOW__CORE__FERNET_KEY=...
 ```
+
+Fernet key передается в контейнер через переменную окружения
+`AIRFLOW__CORE__FERNET_KEY` в `docker-compose.yml`. Ключ не зашивается прямо в
+Dockerfile, чтобы не публиковать секрет в образе и git-репозитории.
 
 Также поменяйте пароли:
 
