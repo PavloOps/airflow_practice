@@ -1,6 +1,6 @@
 airflow-code-editor==8.2.3
-apache-airflow-providers-postgres==6.4.1
-apache-airflow-providers-ssh==5.0.1
-black==25.1.0
+apache-airflow-providers-postgres==6.6.3
+apache-airflow-providers-ssh==5.0.0
+black==26.3.1
 isort==6.0.1
-fsspec[sftp]==2025.3.0
+fsspec[sftp]==2026.3.0
